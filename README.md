@@ -128,16 +128,16 @@ Presenter - презентер содержит основную логику п
 
 Поля класса:  
 `products: IProduct[]` - хранит массив всех товаров.  
-`viewProduct: string` - хранит товар, выбранный для подробного отображения.  
+`viewProduct: IProduct` - хранит товар, выбранный для подробного отображения.  
 
 Методы класса:  
 `loadProducts(products: IProduct[]): void` - сохранение массива товаров полученного в параметрах метода.  
 `getProducts(): IProduct[]` - получение массива товаров из модели.  
-`getProductByID(id: string): IBuyer` - получение одного товара по его id.  
+`getProductByID(id: string): IProduct` - получение одного товара по его id.  
 `loadViewProduct(product: IProduct): void` - сохранение товара для подробного отображения.  
 `getViewProduct(): IProduct` - получение товара для подробного отображения.
 
-#### Класс  Cart
+#### Класс Cart
 
 Поля класса:  
 `selectedProducts: IProduct[]` - хранит массив товаров, выбранных покупателем.
@@ -150,3 +150,17 @@ Presenter - презентер содержит основную логику п
 `getCost(): number` - получение стоимости всех товаров в корзине.  
 `getCount(): number` - получение количества товаров в корзине.  
 `checkInCart(productID: string): boolean` - проверка наличия товара в корзине по его id, полученного в параметр метода.
+
+#### Класс Buyer  
+
+Поля класса:  
+`payment: string` - хранит метод оплаты.  
+`address: string` - хранит адрес покупателя.  
+`phone: string` - хранит номер телефона покупателя.  
+`email: string` - хранит email покупателя.  
+
+Методы класса:  
+`load(): void`  ## todo
+`getData(): IBuyer` - получение всех данных покупателя.  
+`clearData(): void` - очистить данные покупателя.  
+`validData()` - ## todo
