@@ -1,0 +1,19 @@
+import { IBuyer } from "../../types";
+
+export class Buyer {
+  private payment: string;
+  private address: string;
+  private phone: string;
+  private email: string;
+
+  constructor(payment: string, address: string, phone: string, email: string) {
+    this.payment = payment;
+    this.address = address;
+    this.phone = phone;
+    this.email = email;
+  }
+
+  private getData(): IBuyer {
+    
+  }
+}
