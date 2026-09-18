@@ -20,11 +20,11 @@ export class Buyer {
     if (data.email !== undefined) this.email = data.email;
   }
 
-  private getData(): IBuyer {
+  getData(): IBuyer {
    return {payment: this.payment, address: this.address, phone: this.phone, email: this.email};
   }
 
-  private clearData(): void {
+  clearData(): void {
     this.payment = "" as TPayment;
     this.address = "";
     this.phone = "";
