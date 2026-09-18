@@ -4,6 +4,9 @@ import { ProductCatalog } from "./components/models/ProductCatalog";
 import { Cart } from "./components/models/Cart";
 import { Buyer } from "./components/models/Buyer";
 import { apiProducts } from "./utils/data";
+import { API_URL } from "./utils/constants";
+import { Api } from "./components/base/Api";
+import { ShopApi } from "./components/models/ShopApi";
 
 // ---------- ProductCatalog ----------
 const productCatalog = new ProductCatalog();
@@ -48,7 +51,7 @@ cart.clear();
 console.log("Корзина после очистки (должна быть пустой): ", cart.getProducts());
 
 // ---------- Buyer ----------
-const buyer = new Buyer("card", "ул. Ленина, 10", "+79991234567", "test@test.com");
+const buyer = new Buyer();
 
 console.log("Данные покупателя после создания: ", buyer.getData());
 
@@ -63,11 +66,6 @@ console.log("Данные покупателя после clearData: ", buyer.ge
 
 const errorsFull = buyer.validate();
 console.log("Ошибки валидации при пустых данных: ", errorsFull);
-
-
-import { API_URL } from "./utils/constants";
-import { Api } from "./components/base/Api";
-import { ShopApi } from "./components/models/ShopApi";
 
 // ---------- Слой коммуникации ----------
 const api = new Api(API_URL);
