@@ -63,3 +63,23 @@ console.log("Данные покупателя после clearData: ", buyer.ge
 
 const errorsFull = buyer.validate();
 console.log("Ошибки валидации при пустых данных: ", errorsFull);
+
+
+import { API_URL } from "./utils/constants";
+import { Api } from "./components/base/Api";
+import { ShopApi } from "./components/models/ShopApi";
+
+// ---------- Слой коммуникации ----------
+const api = new Api(API_URL);
+const shopApi = new ShopApi(api);
+
+shopApi.getProducts()
+  .then((data) => {
+    console.log("Ответ сервера (каталог): ", data);
+
+    productCatalog.loadProducts(data.items);
+    console.log("Каталог, сохранённый в модели после запроса: ", productCatalog.getProducts());
+  })
+  .catch((err) => {
+    console.error("Ошибка при получении каталога: ", err);
+  });

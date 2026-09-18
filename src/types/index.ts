@@ -23,3 +23,17 @@ export interface IBuyer {
     address: string;
 }
 
+export interface IProductsResponse {
+    total: number;
+    items: IProduct[];
+}
+
+export type TOrder = IBuyer & {
+    total: number;
+    items: string[];
+};
+
+export interface IOrderResult {
+    id: string;
+    total: number;
+}
