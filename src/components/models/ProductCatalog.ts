@@ -9,15 +9,15 @@ export class ProductCatalog {
     this.viewProduct = viewProduct;
   }
 
-  private loadProducts(products: IProduct[]): void {
+  loadProducts(products: IProduct[]): void {
     this.products = products;
   }
 
-  private getProducts(): IProduct[] {
+  getProducts(): IProduct[] {
     return this.products;
   }
 
-  private getProductByID(id: string): IProduct | string {
+  getProductByID(id: string): IProduct | string {
     for (const item of this.products) {
       if (item.id === id) {
         return item;
@@ -26,11 +26,11 @@ export class ProductCatalog {
     return 'Товар не найден'
   }
 
-  private loadViewProduct(product: IProduct): void {
+  loadViewProduct(product: IProduct): void {
     this.viewProduct = product;
   }
 
-  private getViewProduct(): IProduct {
+  getViewProduct(): IProduct {
     return this.viewProduct;
   }
 }

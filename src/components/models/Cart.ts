@@ -1,40 +1,39 @@
 import { IProduct } from "../../types";
 
 export class Cart {
-  private selectedProducts: IProduct[] | null = null;
+  private selectedProducts: IProduct[] = [];
 
-  private getProducts(): IProduct[] | null {
+  getProducts(): IProduct[]{
     return this.selectedProducts;
   }
 
-  private addProduct(product: IProduct): void {
-    if (this.selectedProducts !== null) {
-      this.selectedProducts.push(product);
-    } else {
-      this.selectedProducts = [product];
-    }
+  addProduct(product: IProduct): void {
+    this.selectedProducts.push(product);
   }
 
-  // private deleteProduct(product: IProduct): void {
-  //   if (this.selectedProducts !== null) {
-  //     for (var item =)
-  //   }
-  // }
-
-  private clear(): void {
-    this.selectedProducts = null;
+  deleteProduct(product: IProduct): void {
+    this.selectedProducts = this.selectedProducts.filter(
+      (item) => item.id !== product.id
+    );
   }
 
-  // private getCost(): number {
+  clear(): void {
+    this.selectedProducts = [];
+  }
 
-  // }
+ getCost(): number {
+    return this.selectedProducts.reduce(
+      (sum, item) => sum + (item.price ?? 0),
+      0
+    );
+  }
 
-  private getCount(): number {
-    if (this.selectedProducts !== null) {
-      return this.selectedProducts.length;
-    } else {
-      return 0;
-    }
+  getCount(): number {
+    return this.selectedProducts.length;
+  }
+
+  hasProduct(id: string): boolean {
+    return this.selectedProducts.some((item) => item.id === id);
   }
   
 }
