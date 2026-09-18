@@ -2,9 +2,9 @@ import { IProduct } from "../../types";
 
 export class ProductCatalog {
   private products: IProduct[];
-  private viewProduct: IProduct;
+  private viewProduct: IProduct | null;
   
-  constructor(products: IProduct[], viewProduct: IProduct) {
+  constructor(products: IProduct[] = [], viewProduct: IProduct | null = null) {
     this.products = products;
     this.viewProduct = viewProduct;
   }
@@ -30,7 +30,7 @@ export class ProductCatalog {
     this.viewProduct = product;
   }
 
-  getViewProduct(): IProduct {
+  getViewProduct(): IProduct | null{
     return this.viewProduct;
   }
 }

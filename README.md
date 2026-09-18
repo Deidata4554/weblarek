@@ -128,14 +128,14 @@ Presenter - презентер содержит основную логику п
 
 Поля класса:  
 `products: IProduct[]` - хранит массив всех товаров.  
-`viewProduct: IProduct` - хранит товар, выбранный для подробного отображения.  
+`viewProduct: IProduct | null` - хранит товар, выбранный для подробного отображения.  
 
 Методы класса:  
 `loadProducts(products: IProduct[]): void` - сохранение массива товаров полученного в параметрах метода.  
 `getProducts(): IProduct[]` - получение массива товаров из модели.  
 `getProductByID(id: string): IProduct` - получение одного товара по его id.  
 `loadViewProduct(product: IProduct): void` - сохранение товара для подробного отображения.  
-`getViewProduct(): IProduct` - получение товара для подробного отображения.
+`getViewProduct(): IProduct | null` - получение товара для подробного отображения.
 
 #### Класс Cart
 
